@@ -12,6 +12,11 @@ request('http://localhost:4567/new-pics', function(err, res, body){
 	
 	let pictures = JSON.parse(body);
 	
-	request('http://localhost:4567/' + pictures[0]).pipe(fs.createWriteStream('./downloaded/test.jpg'));
+	for(i=0; i < pictures.length; i++){
+
+		request('http://localhost:4567/' + pictures[i]).pipe(fs.createWriteStream('./downloaded/testdownload' + i + '.jpg'));
+	};
+
+	console.log("Done!");
 
 });
