@@ -11,6 +11,7 @@ app.use(express.static(path.join(__dirname, './pics')));
 
 app.get('/new-pics', (req, res) => {
 
+	// Number of urls to pictures to return.
 	const numberPics = 2;
 
 	// Get array of all files in directory.
@@ -30,7 +31,7 @@ app.get('/new-pics', (req, res) => {
 	};
 
 	// Console log array of picture paths.
-	console.log('Sent file paths: '+ selectedFiles);
+	console.log('Sent file paths: ' + selectedFiles);
 
 	// Respond with array as a string.
 	res.json(selectedFiles);
